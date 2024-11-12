@@ -1,13 +1,13 @@
 package store.stock;
 
-import store.purchase.PurchaseInfo;
-import store.purchase.PurchaseType;
 import store.order.OrderInfo;
 import store.product.Product;
 import store.product.Products;
 import store.product.PromotionProduct;
 import store.product.PromotionProducts;
 import store.promotion.Promotion;
+import store.purchase.PurchaseInfo;
+import store.purchase.PurchaseType;
 
 import java.util.ArrayList;
 import java.util.List;

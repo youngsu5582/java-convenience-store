@@ -10,6 +10,7 @@ public record PurchaseInfo(ProductSnapshot productSnapshot, int count, PurchaseT
     }
 
     public BigDecimal getMoney() {
-        return productSnapshot.price().multiply(BigDecimal.valueOf(count));
+        return productSnapshot.price()
+                .multiply(BigDecimal.valueOf(count));
     }
 }

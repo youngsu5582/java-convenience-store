@@ -31,6 +31,7 @@ public record PromotionProducts(Map<String, PromotionProduct> products) {
     }
 
     public int applyCount(final String productName, final int count) {
-        return Math.min(products.get(productName).applyPromotionCount(count), count);
+        return Math.min(products.get(productName)
+                .applyPromotionCount(count), count);
     }
 }
