@@ -33,7 +33,7 @@ public record Stock(Products products, PromotionProducts promotionProducts) {
     }
 
     public PurchaseInfo purchase(final String productName, final int count) {
-        if (count <= 0 && products.notContains(productName)) {
+        if (count <= 0 || products.notContains(productName)) {
             return null;
         }
         final Product product = products.minus(productName, count);
@@ -41,7 +41,7 @@ public record Stock(Products products, PromotionProducts promotionProducts) {
     }
 
     public List<PurchaseInfo> purchaseWithPromotion(final String productName, final int count) {
-        if (count <= 0 && products.notContains(productName)) {
+        if (count <= 0 || products.notContains(productName)) {
             return List.of();
         }
         final int promotionCount = promotionProducts.applyCount(productName, count);
