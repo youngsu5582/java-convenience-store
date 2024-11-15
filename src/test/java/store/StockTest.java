@@ -60,8 +60,8 @@ class StockTest {
         final List<PurchaseInfo> purchaseInfos = stock.purchaseWithPromotion("콜라", 6);
         assertThat(purchaseInfos).hasSize(2)
                 .containsExactlyInAnyOrder(new PurchaseInfo(ProductFixture.COLA_TWO_PLUS_ONE(7)
-                        .getSnapshot(), 4, PurchaseType.BUY), new PurchaseInfo(ProductFixture.COLA_TWO_PLUS_ONE(7)
-                        .getSnapshot(), 2, PurchaseType.PROMOTION));
+                        .getSnapshot(), 4, PurchaseType.PROMOTION_BUY), new PurchaseInfo(ProductFixture.COLA_TWO_PLUS_ONE(7)
+                        .getSnapshot(), 2, PurchaseType.PROMOTION_GIVE));
     }
 
     @Test
@@ -73,7 +73,7 @@ class StockTest {
         final List<PurchaseInfo> purchaseInfos = stock.purchaseWithPromotion("오렌지주스", 1);
         assertThat(purchaseInfos).hasSize(1)
                 .containsExactlyInAnyOrder(
-                        new PurchaseInfo(ProductFixture.ORANGE_JUICE_MD(7).getSnapshot(), 1, PurchaseType.BUY));
+                        new PurchaseInfo(ProductFixture.ORANGE_JUICE_MD(7).getSnapshot(), 1, PurchaseType.PROMOTION_BUY));
     }
 
     @Test

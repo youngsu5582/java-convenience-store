@@ -2,5 +2,6 @@ package store.purchase;
 
 public enum PurchaseType {
     BUY,
-    PROMOTION
+    PROMOTION_GIVE,
+    PROMOTION_BUY
 }
