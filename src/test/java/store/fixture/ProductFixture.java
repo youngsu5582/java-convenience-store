@@ -1,6 +1,7 @@
 package store.fixture;
 
 import store.product.Product;
+import store.product.ProductSnapshot;
 import store.product.PromotionProduct;
 
 import java.math.BigDecimal;
@@ -20,5 +21,9 @@ public class ProductFixture {
 
     public static PromotionProduct ORANGE_JUICE_MD(final int quantity) {
         return new PromotionProduct(ORANGE_JUICE(quantity), PromotionFixture.MD());
+    }
+
+    public static ProductSnapshot COCA_COLA_SNAPSHOT(final int quantity) {
+        return COCA_COLA(quantity).getSnapshot();
     }
 }

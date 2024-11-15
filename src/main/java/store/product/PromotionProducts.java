@@ -34,4 +34,8 @@ public record PromotionProducts(Map<String, PromotionProduct> products) {
         return Math.min(products.get(productName)
                 .applyPromotionCount(count), count);
     }
+
+    public boolean notContains(final String productName) {
+        return !products.containsKey(productName);
+    }
 }
