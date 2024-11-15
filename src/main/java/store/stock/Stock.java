@@ -41,7 +41,7 @@ public record Stock(Products products, PromotionProducts promotionProducts) {
     }
 
     public List<PurchaseInfo> purchaseWithPromotion(final String productName, final int count) {
-        if (count <= 0 || products.notContains(productName)) {
+        if (count <= 0 || promotionProducts.notContains(productName)) {
             return List.of();
         }
         final int promotionCount = promotionProducts.applyCount(productName, count);
@@ -52,10 +52,10 @@ public record Stock(Products products, PromotionProducts promotionProducts) {
     private List<PurchaseInfo> createPurchaseInfo(final PromotionProduct product, final int promotionCount, final int count) {
         final List<PurchaseInfo> purchaseInfos = new ArrayList<>();
         if (promotionCount > 0) {
-            purchaseInfos.add(new PurchaseInfo(product.getSnapshot(), promotionCount, PurchaseType.PROMOTION));
+            purchaseInfos.add(new PurchaseInfo(product.getSnapshot(), promotionCount, PurchaseType.PROMOTION_GIVE));
         }
         if (count - promotionCount > 0) {
-            purchaseInfos.add(new PurchaseInfo(product.getSnapshot(), count, PurchaseType.BUY));
+            purchaseInfos.add(new PurchaseInfo(product.getSnapshot(), count, PurchaseType.PROMOTION_BUY));
         }
         return purchaseInfos;
     }
